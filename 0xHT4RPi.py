@@ -17,15 +17,14 @@ while True:
     [@] Twitter: \033[1;31m@0xAbdullah\033[1;m | WebSite: \033[1;31m0xA.TECH\033[1;m
     \n'''
     print Hello
-
     if not os.geteuid() == 0:
         sys.exit("\n\033[1;31m[-] You don't have admin privilegies, execute the script as root.\n[@] sudo python 0xHT4RPi.py\033[1;m")
-
     List = '''
     1) Hacking WiFi
     2) Jamming WiFi
     3) Sniffing
 
+    [Esc] Press [Q] to exit
     99) Install/Update Tools
     \n'''
 
@@ -61,6 +60,8 @@ while True:
     elif List == '3':
         print SList
         SList = raw_input(" > ")
+    elif List == 'q' or List == 'Q':
+        break
         if SList == '1':
             ExIndex = '''
     1) Redirecting the victim to another Website
@@ -106,8 +107,6 @@ while True:
             os.system('apt-get install -y nbtscan')
             os.system('apt-get install -y aircrack-ng')
             os.system('apt-get install -y driftnet')
-            os.system('apt-get install -y aircrack-ng')
-            os.system('apt-get install -y nbtscan')
             os.system('clear')
             print "[!] Done....."
             os.system("sudo python 0xHT4RPi.py")
