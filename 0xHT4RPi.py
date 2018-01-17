@@ -60,8 +60,6 @@ while True:
     elif List == '3':
         print SList
         SList = raw_input(" > ")
-    elif List == 'q' or List == 'Q':
-        break
         if SList == '1':
             ExIndex = '''
     1) Redirecting the victim to another Website
@@ -112,3 +110,5 @@ while True:
             os.system("sudo python 0xHT4RPi.py")
         else:
             pass
+    elif List == 'q' or List == 'Q':
+        break
