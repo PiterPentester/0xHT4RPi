@@ -99,6 +99,10 @@ elif List == '99':
             print "[!] Need GUI to Install Fluxion"
         os.system('cd 0xHT4RPi && git clone https://github.com/DanMcInerney/wifijammer.git')
         os.system('cd 0xHT4RPi && git clone https://github.com/DanMcInerney/LANs.py.git')
+        os.system('apt-get install -y network-manager')
+        os.system('apt-get install -y python-nfqueue')
+        os.system('apt-get install -y python-twisted')
+        os.system('apt-get install -y driftnet')
         os.system('clear')
         print "[!] Done....."
         os.system("sudo python 0xHT4RPi.py")
