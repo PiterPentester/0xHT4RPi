@@ -6,6 +6,7 @@ This script based on a total of tools for hacking !
   - LINs.py
   - Fluxion
   - Wifiphisher
+  - Driftnet
 # Installation
 ```bash
 git clone https://github.com/0xAbdullah/0xHT4RPi.git # Download the latest revision
