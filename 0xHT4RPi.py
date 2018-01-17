@@ -92,7 +92,7 @@ elif List == '99':
     QInstall = raw_input('[I] Do You Want To Install/Update Tools Y/n \n > ')
     if QInstall == 'y' or QInstall == 'Y':
         print "[I] Please Wait ... Downloading and installing the tools"
-        os.system('mkdir 0xHT4RPi && cd 0xHT4RPi && git clone https://github.com/wifiphisher/wifiphisher.git && cd wifiphisher && python setup.py install && y')
+        os.system('mkdir 0xHT4RPi && cd 0xHT4RPi && git clone https://github.com/wifiphisher/wifiphisher.git && cd wifiphisher && python setup.py install')
         os.system('cd 0xHT4RPi && git clone https://github.com/wi-fi-analyzer/fluxion.git && cd fluxion/install && bash install.sh')
         os.system('cd 0xHT4RPi && git clone https://github.com/DanMcInerney/wifijammer.git')
         os.systen('cd 0xHT4RPi && git clone https://github.com/DanMcInerney/LANs.py.git')
